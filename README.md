@@ -5,7 +5,7 @@
 This repository hosts my professional portfolio, documenting my transition from a National Health Fellow to a Graphic Designer. 
 
 ### 🔗 Quick Links
-* **Live Portfolio Website:** [Click here to view my work](https://genius-craft001.github.io/Genius-impact-Portfolio/)
+* **Live Portfolio Website:** [Click here to view my work](https://drive.google.com/file/d/1PG_27FNVVwVzBSkFmaZnjdClO0SGCfsB/view?usp=drivesdk
 * **Extended Design Gallery:** [Google Drive - Full Creative Works](https://drive.google.com/drive/folders/1nDWo2FbqLd4BgqZJGAN1fS9g_aMQe6fI)
 
 ---
