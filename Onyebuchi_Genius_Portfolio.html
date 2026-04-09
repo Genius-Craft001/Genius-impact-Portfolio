@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Onyebuchi Genius Okonkwo — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B3A6B;
+    --navy-deep: #0F2547;
+    --gold: #C9913A;
+    --gold-light: #E8C27A;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --ink: #1A1A1A;
+    --muted: #666666;
+    --border: #E0D8CC;
+    --accent-bg: #F3EFE8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── INTRO HERO ───────────────────────────────── */
+  .hero {
+    background: var(--navy-deep);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,145,58,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(27,58,107,0.6) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    max-width: 860px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-name span { color: var(--gold); }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-top: 24px;
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 36px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .tag {
+    border: 1px solid rgba(201,145,58,0.5);
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    padding: 6px 16px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-contact {
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+  }
+
+  .hero-contact a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .hero-contact a:hover { color: var(--gold); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+
+  .scroll-hint::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── LAYOUT ───────────────────────────────────── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  section { padding: 100px 0; }
+
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    height: 1px;
+    width: 40px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  /* ── ABOUT ────────────────────────────────────── */
+  .about-section { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 8px;
+  }
+
+  .stat-card {
+    background: var(--accent-bg);
+    border-left: 3px solid var(--gold);
+    padding: 28px 24px;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── WHAT I BRING ─────────────────────────────── */
+  .skills-section { background: var(--cream); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(27,58,107,0.1);
+  }
+
+  .skill-icon {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .skill-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .skill-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ── EXPERIENCE TIMELINE ──────────────────────── */
+  .experience-section { background: var(--navy-deep); }
+
+  .experience-section .section-title { color: var(--white); }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    border-left: 2px solid rgba(201,145,58,0.3);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    padding-left: 36px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -41px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--navy-deep);
+  }
+
+  .timeline-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .timeline-org {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .timeline-points {
+    list-style: none;
+  }
+
+  .timeline-points li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .timeline-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+
+  .timeline-badge {
+    display: inline-block;
+    background: rgba(201,145,58,0.15);
+    border: 1px solid rgba(201,145,58,0.3);
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  /* ── PROJECTS / WORK SAMPLES ──────────────────── */
+  .projects-section { background: var(--white); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(27,58,107,0.1);
+  }
+
+  .project-thumb {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-thumb-1 { background: linear-gradient(135deg, #1B3A6B 0%, #0F2547 100%); }
+  .project-thumb-2 { background: linear-gradient(135deg, #C9913A 0%, #8B5E1A 100%); }
+  .project-thumb-3 { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); }
+  .project-thumb-4 { background: linear-gradient(135deg, #7B2D8B 0%, #4A1261 100%); }
+  .project-thumb-5 { background: linear-gradient(135deg, #B5460F 0%, #7A2D06 100%); }
+  .project-thumb-6 { background: linear-gradient(135deg, #1A5276 0%, #0E2F44 100%); }
+
+  .project-thumb-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    padding: 20px;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+  }
+
+  .project-body { padding: 28px; }
+
+  .project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── EDUCATION ────────────────────────────────── */
+  .education-section { background: var(--accent-bg); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .edu-card {
+    background: var(--white);
+    padding: 36px;
+    border-bottom: 3px solid var(--navy);
+  }
+
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .edu-school { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+
+  .edu-detail { font-size: 13px; color: var(--ink); }
+
+  /* ── CERTS ────────────────────────────────────── */
+  .certs-section { background: var(--white); }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .cert-pill {
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .cert-pill:hover {
+    border-color: var(--gold);
+    background: var(--accent-bg);
+  }
+
+  .cert-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .cert-issuer { font-size: 11px; color: var(--muted); }
+
+  /* ── CONTACT ──────────────────────────────────── */
+  .contact-section {
+    background: var(--navy-deep);
+    text-align: center;
+    padding: 100px 48px;
+  }
+
+  .contact-section .section-eyebrow { justify-content: center; }
+  .contact-section .section-eyebrow::after { display: none; }
+
+  .contact-section .section-title {
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .contact-section p {
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    font-size: 15px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .contact-btn:hover {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+
+  .contact-btn.primary {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+
+  .contact-btn.primary:hover {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER ───────────────────────────────────── */
+  footer {
+    background: var(--navy-deep);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 28px; }
+    .container { padding: 0 24px; }
+    section { padding: 70px 0; }
+    .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 36px; }
+    .scroll-hint { left: 28px; }
+    .timeline { padding-left: 20px; }
+    .timeline-item { padding-left: 24px; }
+    .timeline-item::before { left: -28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-label">Portfolio — Graphic Design &amp; Visual Communication</div>
+  <h1 class="hero-name">Onyebuchi<br/><span>Genius</span> Okonkwo</h1>
+  <p class="hero-subtitle">A public health practitioner applying for the Tobams Group Graphic Design Internship — bringing a genuine interest in design, real experience communicating complex information visually, and a strong commitment to learning from your team.</p>
+  <div class="hero-tags">
+    <span class="tag">Presentation Design</span>
+    <span class="tag">Print Materials</span>
+    <span class="tag">Data Visualisation</span>
+    <span class="tag">SDG Advocacy</span>
+    <span class="tag">Open to Learn</span>
+  </div>
+  <div class="hero-contact">
+    <a href="mailto:okonkwoonyebu@gmail.com">okonkwoonyebu@gmail.com</a>
+    <a href="tel:+2348100738389">+234 810 073 8389</a>
+    <a href="https://www.linkedin.com/in/onyebuchi-genius-okonkwo-982a131a5" target="_blank">LinkedIn</a>
+    <a href="https://drive.google.com/drive/folders/1nDWo2FbqLd4BgqZJGAN1fS9g_aMQe6fI" target="_blank">Google Drive Portfolio</a>
+  </div>
+  <div class="scroll-hint">Scroll to explore</div>
+</section>
+
+
+<!-- ══ ABOUT ══════════════════════════════════════════════════════ -->
+<section class="about-section">
+  <div class="container">
+    <div class="section-eyebrow">Who I Am</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Science trained.<br/>Visually driven.</h2>
+        <p>My name is Onyebuchi Genius Okonkwo. I studied Zoology at Nnamdi Azikiwe University, with a focus on parasitology and public health. My professional path since then has been shaped by a simple but consistent observation: <strong>information only makes a difference when it reaches people clearly.</strong></p>
+        <p>During my year as a National Health Fellow with the Federal Ministry of Health in Nkanu West LGA, I spent a significant part of my time translating field data and assessment results into reports, presentations, and visual materials that state health authorities and community members could actually act on. I was not hired as a designer — but the work demanded design thinking.</p>
+        <p>Through SDG advocacy programmes and a Graphic Design facilitation role, I developed a hands-on understanding of layout principles, colour use, and print production. My work is still growing, and I am here precisely because I want to develop it properly — inside a team that takes design seriously. <strong>I come with an open mind, genuine curiosity, and no illusions about being finished.</strong></p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">27</div>
+          <div class="stat-label">PHCs assessed &amp; documented visually</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">77%</div>
+          <div class="stat-label">Outpatient attendance increase supported</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">21</div>
+          <div class="stat-label">Custom print materials designed for SDG project</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Students reached through visual education</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WHAT I BRING ═══════════════════════════════════════════════ -->
+<section class="skills-section">
+  <div class="container">
+    <div class="section-eyebrow">What I Bring</div>
+    <h2 class="section-title">Design skills grounded<br/>in real work.</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">📐</div>
+        <h3>Layout &amp; Composition</h3>
+        <p>Hands-on experience building structured PowerPoint presentations for government-level stakeholders. Comfortable applying grid logic, visual hierarchy, and section-by-section narrative flow.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>Colour &amp; Visual Clarity</h3>
+        <p>Applied colour theory in real print projects — including SDG-themed learning materials where colour coded information had to be legible and meaningful to young audiences with no prior SDG exposure.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🖨️</div>
+        <h3>Print Material Development</h3>
+        <p>Managed the full design-to-print cycle for community education materials. Familiar with the practical decisions that go into preparing files for physical reproduction.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>Data Visualisation</h3>
+        <p>Translated raw field data from ODK and CommCare assessments into tables, charts, and infographic summaries. Skilled at deciding what to show and what to leave out.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💡</div>
+        <h3>Brief Analysis &amp; Conceptualisation</h3>
+        <p>Experienced in receiving a project objective — whether a health programme or an SDG campaign — and working backwards to conceptualise the visual approach that best serves the audience.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🛠️</div>
+        <h3>Design Tools (Foundation)</h3>
+        <p>Working knowledge of Microsoft PowerPoint (advanced), Canva, Microsoft Publisher, and foundational Adobe Photoshop. Eager to develop further proficiency in Illustrator, InDesign, and CorelDraw under supervision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WORK SAMPLES ════════════════════════════════════════════════ -->
+<section class="projects-section">
+  <div class="container">
+    <div class="section-eyebrow">Work Samples</div>
+    <h2 class="section-title">Where design met purpose.</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-thumb project-thumb-1">
+          <div class="project-thumb-label">PHC Revitalisation<br/>Visual Report</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Presentation Design · Data Visualisation</div>
+          <div class="project-title">PHC Performance Dashboards — Nkanu West LGA</div>
+          <p class="project-desc">Structured PowerPoint presentations translating mystery-client assessment data from 27 primary health centres into before-and-after visual evidence for Enugu State health authorities. Used photography, charts, and narrative layout to support advocacy for infrastructure funding.</p>
+          <div class="project-meta">
+            <span>Federal Ministry of Health</span>
+            <span>2025 – 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb project-thumb-2">
+          <div class="project-thumb-label">SDG Print Materials<br/>21 Custom Designs</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Print Design · Educational Infographics</div>
+          <div class="project-title">Own-A-School SDG Visual Learning Materials</div>
+          <p class="project-desc">Conceptualised and produced 21 sets of printed materials to explain the 17 Sustainable Development Goals to secondary school students. Applied colour coding, simplified iconography, and story-based framing to make global concepts accessible in a Nigerian classroom setting. Reached 200+ students.</p>
+          <div class="project-meta">
+            <span>SDSN Youth, Cohort 7</span>
+            <span>Oct – Nov 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb project-thumb-3">
+          <div class="project-thumb-label">Clean Energy Training<br/>Visual Aids</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Visual Pedagogy · Layout Design</div>
+          <div class="project-title">SDG 4, 7 &amp; 13 — Clean Energy Training Materials</div>
+          <p class="project-desc">Designed structured visual aids for a clean energy and climate literacy training at Nsukka High School, reaching 1,000+ students. Focused on translating technical sustainability concepts into clearly structured, visually engaging session materials.</p>
+          <div class="project-meta">
+            <span>Nsukka High School</span>
+            <span>Dec 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb project-thumb-4">
+          <div class="project-thumb-label">Community Health<br/>Awareness Materials</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Print Design · Community Branding</div>
+          <div class="project-title">PHC Trust-Building Notices &amp; Displays</div>
+          <p class="project-desc">Produced community-facing print layouts — facility notices, awareness prompts, and information displays — to help rebuild public confidence in previously inactive primary health centres. Prioritised clarity and appropriate literacy levels for rural audiences in Nkanu West LGA.</p>
+          <div class="project-meta">
+            <span>Federal Ministry of Health</span>
+            <span>2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb project-thumb-5">
+          <div class="project-thumb-label">Measles–Rubella Campaign<br/>Field Reporting</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Data Visualisation · Reporting Design</div>
+          <div class="project-title">MR Vaccination Campaign Visual Documentation</div>
+          <p class="project-desc">Designed daily monitoring summaries and visual reporting templates for the National Primary Health Care Development Agency (NPHCDA/WHO) Measles–Rubella vaccination campaign. Contributed to structured visual outputs that supported 100% ward coverage with zero missed children across 10+ wards.</p>
+          <div class="project-meta">
+            <span>NPHCDA / WHO</span>
+            <span>Jan – Feb 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb project-thumb-6">
+          <div class="project-thumb-label">Graphic Design<br/>Facilitation</div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Teaching · Design Fundamentals</div>
+          <div class="project-title">Graphic Design Training — Rehoboth Programme</div>
+          <p class="project-desc">Facilitated an introductory graphic design session covering layout structure, colour use, visual hierarchy, and design tools for practical application. Teaching the fundamentals deepened my own understanding and confirmed my commitment to pursuing design professionally.</p>
+          <div class="project-meta">
+            <span>Rehoboth Skills Acquisition</span>
+            <span>May 2024</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ EXPERIENCE TIMELINE ════════════════════════════════════════ -->
+<section class="experience-section">
+  <div class="container">
+    <div class="section-eyebrow" style="color:rgba(201,145,58,0.7)">Experience</div>
+    <h2 class="section-title">Where I have worked<br/>and what I did.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">Mar 2025 – Feb 2026</div>
+        <div class="timeline-role">National Health Fellow</div>
+        <div class="timeline-org">Federal Ministry of Health — Nkanu West LGA, Enugu State</div>
+        <ul class="timeline-points">
+          <li>Designed structured PowerPoint presentations to communicate PHC assessment findings to state health authorities, using before-and-after photography and data charts as the primary evidence base.</li>
+          <li>Produced community-facing print materials — notices, awareness displays — to support health committee reactivation in three underserved facilities.</li>
+          <li>Translated mystery-client field data from 27 PHCs into visual performance summaries used in LGA-level review meetings.</li>
+          <li>Supported a 77% increase in outpatient attendance and the restoration of 24-hour service delivery at key facilities through community-driven, visually-communicated advocacy.</li>
+        </ul>
+        <div class="timeline-badge">Visual Reporting · Print Design · Data Visualisation</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Aug – Dec 2025</div>
+        <div class="timeline-role">Lead Facilitator &amp; Materials Designer</div>
+        <div class="timeline-org">SDSN Youth, Cohort 7 — SDG Advocacy Projects, Enugu State</div>
+        <ul class="timeline-points">
+          <li>Conceptualised and produced 21 sets of printed visual learning aids for three secondary schools, reaching over 1,200 students in total.</li>
+          <li>Applied colour coding, simplified iconography, and story-based framing to make the 17 SDGs accessible to young audiences in rural Nigerian schools.</li>
+          <li>Managed the full design-to-print process for the Own-A-School initiative at Community Secondary School, Umueze Awkunanaw.</li>
+        </ul>
+        <div class="timeline-badge">Print Production · Educational Design · Colour Theory</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">May 2024</div>
+        <div class="timeline-role">Graphic Design Facilitator</div>
+        <div class="timeline-org">Rehoboth Skills Acquisition Programme</div>
+        <ul class="timeline-points">
+          <li>Delivered introductory sessions covering layout principles, colour use, and visual hierarchy to participants exploring design as a career skill.</li>
+          <li>The facilitation role required clear articulation of design concepts in plain terms — an experience that deepened my own foundational understanding.</li>
+        </ul>
+        <div class="timeline-badge">Design Fundamentals · Teaching</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Oct – Dec 2025</div>
+        <div class="timeline-role">Research2Impact (R2I) Fellow</div>
+        <div class="timeline-org">Wale Lab — Remote, Nigeria</div>
+        <ul class="timeline-points">
+          <li>Developed skills in structured technical documentation and research communication, with direct application to the production of clear, visually-organised written outputs.</li>
+          <li>Engaged in mentor-supported sessions on presenting research findings in formats accessible to non-specialist audiences.</li>
+        </ul>
+        <div class="timeline-badge">Technical Documentation · Communication Design</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ EDUCATION ══════════════════════════════════════════════════ -->
+<section class="education-section">
+  <div class="container">
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-title">Academic foundation.</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2017 – 2021</div>
+        <div class="edu-degree">B.Sc. Zoology<br/>(Parasitology &amp; Public Health)</div>
+        <div class="edu-school">Nnamdi Azikiwe University, Awka</div>
+        <div class="edu-detail"><strong>CGPA: 3.72 — Second Class Upper</strong><br/><br/>Undergraduate research involved structured technical documentation and visual representation of disease co-infection data — early practice in translating scientific findings into clear, formatted outputs for a specialist audience.</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2024</div>
+        <div class="edu-degree">Basic ICT Skills Certificate</div>
+        <div class="edu-school">Solomot Computer College</div>
+        <div class="edu-detail">Practical grounding in digital productivity tools and computer operations relevant to professional design workflows.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CERTIFICATIONS ══════════════════════════════════════════════ -->
+<section class="certs-section">
+  <div class="container">
+    <div class="section-eyebrow">Certifications</div>
+    <h2 class="section-title">Continuous learning.</h2>
+    <div class="certs-grid">
+      <div class="cert-pill">
+        <div class="cert-name">Content, Creative &amp; Copy Writing</div>
+        <div class="cert-issuer">Ingenious Writers Academy</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">Project Management</div>
+        <div class="cert-issuer">Project Management Institute (PMI)</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">Mastering Confident Presentation</div>
+        <div class="cert-issuer">Nigeria Youth Academy</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">Data Analysis, Leadership &amp; Public Health</div>
+        <div class="cert-issuer">Miva Open University</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">Agile Project Management</div>
+        <div class="cert-issuer">Septa Academy</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">Public Health — Level 2 Certificate</div>
+        <div class="cert-issuer">La Plage Metaverse</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">Health, Safety &amp; Environment (HSE)</div>
+        <div class="cert-issuer">Corporate Institute of Strategic Research</div>
+      </div>
+      <div class="cert-pill">
+        <div class="cert-name">SDG Youth Advocate — Cohort 7</div>
+        <div class="cert-issuer">SDSN Nigeria</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CONTACT ════════════════════════════════════════════════════ -->
+<section class="contact-section">
+  <div class="container">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Ready to join the team.</h2>
+    <p>I am applying for the Tobams Group Graphic Design Internship with an open mind, genuine curiosity, and a clear commitment to learning from your senior designers. Let's talk.</p>
+    <div class="contact-links">
+      <a class="contact-btn primary" href="mailto:okonkwoonyebu@gmail.com">Email Me</a>
+      <a class="contact-btn" href="https://www.linkedin.com/in/onyebuchi-genius-okonkwo-982a131a5" target="_blank">LinkedIn</a>
+      <a class="contact-btn" href="https://drive.google.com/drive/folders/1nDWo2FbqLd4BgqZJGAN1fS9g_aMQe6fI" target="_blank">Google Drive Portfolio</a>
+      <a class="contact-btn" href="https://drive.google.com/drive/folders/1FVRMTQ6VKcwzSpDdSRiRErLL4NUOBuPF" target="_blank">Additional Files</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Onyebuchi Genius Okonkwo &nbsp;·&nbsp; okonkwoonyebu@gmail.com &nbsp;·&nbsp; +234 810 073 8389 &nbsp;·&nbsp; Nkanu West LGA, Enugu State, Nigeria
+</footer>
+
+</body>
+</html>
